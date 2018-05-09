@@ -1,15 +1,23 @@
+body, html {
+  height: 100%;
+  display: grid;
+}
+
+.colored {
+  background-color: #000;
+}
+
 .square {
   border: 1px solid black;
   box-sizing: border-box;
-  height: 6.25vh;
-  width: auto;
+  min-height: 3vh;
+  min-width: 3vh;
 }
 
 #container-div {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
+  margin: auto;
   text-align: center;
-  height: 40vh;
-  width: 60vw;
 }
