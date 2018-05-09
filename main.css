@@ -1,6 +1,6 @@
-body, html {
-  height: 100%;
-  display: grid;
+.header {
+  padding: 20px;
+  text-align: center;
 }
 
 .colored {
@@ -10,14 +10,14 @@ body, html {
 .square {
   border: 1px solid black;
   box-sizing: border-box;
-  min-height: 3vh;
-  min-width: 3vh;
 }
 
 #container-div {
+  align-items: stretch;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
+  height: 70vh;
+  justify-content: stretch;
   margin: auto;
   text-align: center;
+  width: 70vh;
 }

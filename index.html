@@ -8,15 +8,20 @@
   <script src="main.js"></script>
 </head>
 <body>
+  <header class="header">
+    <h1>Browser Etch-a-Sketch</h1>
+    <button id="btn-clear">Clear</button>
+  </header>
+
   <div id="container-div"></div>
   <script>
+
+    let userSquares;
+
     const grid = document.querySelector('#container-div');
     
-    for (let index = 0; index < 256; index++) {
-      const square = document.createElement('div');
-      square.classList.add('square');
-      grid.appendChild(square);
-    }
+    
+    createGrid(16);
 
     const squares = document.querySelectorAll('.square');
     squares.forEach((square) => {
@@ -24,6 +29,46 @@
         square.classList.add('colored');
       });
     });
+
+    const buttonClear = document.querySelector('#btn-clear');
+    buttonClear.addEventListener('click', (e) => {
+      playAgain();
+    });
+
+    function playAgain() {
+      squares.forEach((square) => {
+        square.classList.remove('colored');
+      });
+      let userStringSquares = prompt("How many squares (per side) for the new grid?");
+      userSquares = Number(userStringSquares);
+      createGrid(userSquares);
+      addSquareListeners();
+    }
+
+    function createGrid(squares) {
+      clearGrid();
+      grid.setAttribute('style', `grid-template-columns: repeat(${squares}, 1fr); grid-template-rows: repeat(${squares}, 1fr);`);
+      for (let index = 0; index < (squares * squares); index++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        grid.appendChild(square);
+      }
+    }
+
+    function clearGrid() {
+      while (grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+      }
+    }
+
+    function addSquareListeners() {
+      const newSquares = document.querySelectorAll('.square');
+      newSquares.forEach((square) => {
+        square.addEventListener('mouseenter', (e) => {
+          square.classList.add('colored');
+        });
+      });
+    }
     
   </script>
 </body>
