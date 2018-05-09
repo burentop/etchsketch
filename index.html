@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+  <div id="container-div"></div>
+  <script>
+    const grid = document.querySelector('#container-div');
+    
+    for (let index = 0; index < 256; index++) {
+      const square = document.createElement('div');
+      square.classList.add('square');
+      square.textContent = "test";
+      grid.appendChild(square);
+    }
+    
+  </script>
+</body>
+</html>

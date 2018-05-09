@@ -1,0 +1,15 @@
+.square {
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 6.25vh;
+  width: auto;
+}
+
+#container-div {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  text-align: center;
+  height: 40vh;
+  width: 60vw;
+}
